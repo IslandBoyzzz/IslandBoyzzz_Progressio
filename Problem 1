@@ -1,0 +1,15 @@
+g = int(input("how many times do u wish to run this case"))
+while g >=1 and g<=1000:
+ 
+  v = 10
+  C = int()
+  r=1
+  for x in range(g):
+    r = int(input("how many rupees do u wish to be"))
+    if r>0 and r<1000:
+      C = r%v
+      print("least number of coins is ", C)
+      g = g - 1
+    else: print("Too much money")
+else:
+  print("Test limit reached")
