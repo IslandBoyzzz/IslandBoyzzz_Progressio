@@ -1,0 +1,40 @@
+import pandas
+import matplotlib.pyplot as plt
+from scipy import stats
+import numpy
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error
+import seaborn as sns
+sns.set_theme(style="darkgrid")
+
+Data = pandas.read_csv (r'/Users/parthkhurana/Downloads/global CO2.csv')
+print (Data)
+
+x = pandas.DataFrame(Data, columns= ['1870'])
+y = pandas.DataFrame(Data, columns= ['289.34'])
+print(x)
+print(y)
+
+new_x = x.values.tolist()
+new_y = y.values.tolist()
+print(new_x)
+print(new_y)
+
+x_train = new_x[110:-30]
+x_test = new_x[-30:]
+
+y_train = new_y[110:-30]
+y_test = new_y[-30:]
+
+regr = linear_model.LinearRegression()
+regr.fit(x_train, y_train)
+y_pred = regr.predict(x_test)
+
+plt.scatter(x_test, y_test, color="black")
+plt.plot(x_test, y_pred, color="green", linewidth=3)
+plt.xlabel("Year")
+plt.ylabel("CO2 Emissions")
+
+
+
+plt.show()
