@@ -1,0 +1,15 @@
+r = int(input("How many times do you want to run the test"))
+if r>0 and r<1000:
+  for t in range (r):
+    x, y = [int(x) for x in input("Enter the two heights").split()]
+    if x>100 and x<200 and y<200 and y>100:
+      if x>y:
+        print("A")
+      elif x<y:
+          print("B")
+    else:
+          print("Height should be smaller or equal to 200 and more or equal to 100")
+
+
+else:
+    print("Number of test should be less than 1000 and greater than 0")
